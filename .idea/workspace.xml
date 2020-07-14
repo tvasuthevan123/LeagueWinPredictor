@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8a2caa4-70f3-4736-bb04-ceef76caa50f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/LeagueWinPredictor.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LeagueWinPredictor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LeagueWinPredictor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +39,20 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
+  <component name="RunManager">
+    <configuration name="LeagueWinPredictor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LeagueWinPredictor" />
+      <module name="LeagueWinPredictor.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.LeagueWinPredictor" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -44,9 +67,34 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="461" y="182" key="SettingsEditor" timestamp="1594676773444">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1495" height="224" key="GridCell.Tab.0.bottom" timestamp="1594682185626">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
+    <state width="1495" height="224" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1594682185626" />
+    <state width="1495" height="224" key="GridCell.Tab.0.center" timestamp="1594682185626">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1495" height="224" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1594682185626" />
+    <state width="1495" height="224" key="GridCell.Tab.0.left" timestamp="1594682185625">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1495" height="224" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1594682185625" />
+    <state width="1495" height="224" key="GridCell.Tab.0.right" timestamp="1594682185626">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1495" height="224" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1594682185626" />
+    <state x="369" y="146" key="SettingsEditor" timestamp="1594677348098">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="369" y="146" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1594677348098" />
     <state x="461" y="182" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1594676773444" />
+    <state x="458" y="258" key="com.intellij.ide.util.TipDialog" timestamp="1594729673307">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="458" y="258" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1594729673307" />
+    <state x="569" y="351" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594729677887">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="569" y="351" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1594729677887" />
   </component>
 </project>

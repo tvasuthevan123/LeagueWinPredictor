@@ -3,32 +3,36 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONArray;
-import org.json.simple.parser.ParseException;
-import org.json.simple.parser.JSONParser;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 public class LeagueWinPredictor {
 
     public static void main(String args[])
     {
-        URL url;
+        ArrayList<String> url = new ArrayList();
         String mainSummonerRequestURL = "https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/";
         String summonerName = "Yuseya";
-//        String region = "euw1";
 
-        
+        url.add(mainSummonerRequestURL);
+        url.add(summonerName);
 
+        Summoner summoner = executeRequest(url);
+        System.out.println(summoner.getName());
     }
 
-    public String executeRequest(ArrayList<String> urlComponents)
+    public static Summoner executeRequest(ArrayList<String> urlComponents)
     {
         String urlCombined = "";
+
         for(int i=0; i<urlComponents.size(); i++)
         {
             urlCombined+=urlComponents.get(i);
         }
+
         String result = "";
+
         try{
             URL url = new URL(urlCombined);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -38,6 +42,7 @@ public class LeagueWinPredictor {
             con.setRequestProperty("X-Riot-Token", System.getenv("Key"));
             //</editor-fold>
             int status = con.getResponseCode();
+            System.out.println(status);
             BufferedReader webScraper = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String line = webScraper.readLine();
             while(line != null)
@@ -49,6 +54,8 @@ public class LeagueWinPredictor {
         catch(Exception e){
             System.out.println("The program encountered the following error : " + e);
         }
-        return result;
+
+        Summoner summoner = new Gson().fromJson(result, Summoner.class);
+        return summoner;
     }
 }
