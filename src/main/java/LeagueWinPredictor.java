@@ -18,44 +18,8 @@ public class LeagueWinPredictor {
         url.add(mainSummonerRequestURL);
         url.add(summonerName);
 
-        Summoner summoner = executeRequest(url);
+
         System.out.println(summoner.getName());
     }
 
-    public static Summoner executeRequest(ArrayList<String> urlComponents)
-    {
-        String urlCombined = "";
-
-        for(int i=0; i<urlComponents.size(); i++)
-        {
-            urlCombined+=urlComponents.get(i);
-        }
-
-        String result = "";
-
-        try{
-            URL url = new URL(urlCombined);
-            HttpURLConnection con = (HttpURLConnection) url.openConnection();
-            con.setRequestMethod("GET");
-            con.setDoOutput(true);
-            //<editor-fold desc="API Key - Secret Stuff">
-            con.setRequestProperty("X-Riot-Token", System.getenv("Key"));
-            //</editor-fold>
-            int status = con.getResponseCode();
-            System.out.println(status);
-            BufferedReader webScraper = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String line = webScraper.readLine();
-            while(line != null)
-            {
-                result+=line;
-                line = webScraper.readLine();
-            }
-        }
-        catch(Exception e){
-            System.out.println("The program encountered the following error : " + e);
-        }
-
-        Summoner summoner = new Gson().fromJson(result, Summoner.class);
-        return summoner;
-    }
 }
