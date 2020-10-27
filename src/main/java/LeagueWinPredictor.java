@@ -19,7 +19,7 @@ public class LeagueWinPredictor {
         url.add(summonerName);
 
 
-        System.out.println(summoner.getName());
+        Summoner.generateJson();
     }
 
 }

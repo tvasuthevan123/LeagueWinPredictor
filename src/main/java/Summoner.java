@@ -1,13 +1,19 @@
-import com.google.gson.Gson;
-
-import java.io.BufferedReader;
+import com.google.gson.*;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+
+class Container{
+    public List<Summoner> summonerList;
+}
+
+
 
 public class Summoner{
 
+    private static String key = System.getenv("KEY");
     private String accountID;
     private int profileIconID;
     private long revisionDate;
@@ -55,41 +61,48 @@ public class Summoner{
         {
             for(Division division: divisions)
             {
+                ArrayList<String> divMembers = getDivMembers(league, division);
 
             }
         }
     }
 
-    public static ArrayList<Summoner> executeRequest(League league, Division division)
+    public static ArrayList<String> getDivMembers(League league, Division division)
     {
-        ArrayList<Summoner> summoners = new ArrayList();
-        String urlCombined = "https://euw1.api.riotgames.com/lol/league/v4/entries/RANKED_SOLO_5x5/" + league.name() + "/" + division.name() + "?page=%d";
+        ArrayList<String> summIDs = new ArrayList();
 
-        String result = "";
-        try{
-            URL url = new URL(urlCombined);
-            HttpURLConnection con = (HttpURLConnection) url.openConnection();
-            con.setRequestMethod("GET");
-            con.setDoOutput(true);
-            //<editor-fold desc="API Key - Secret Stuff">
-            con.setRequestProperty("X-Riot-Token", System.getenv("Key"));
-            //</editor-fold>
-            int status = con.getResponseCode();
-            System.out.println(status);
-            BufferedReader webScraper = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String line = webScraper.readLine();
-            while(line != null)
-            {
-                result+=line;
-                line = webScraper.readLine();
+
+        String urlCombined = "https://euw1.api.riotgames.com/lol/league-exp/v4/entries/RANKED_SOLO_5x5/" + league.name() + "/" + division.name() + "?page=1";
+        int status = 429;
+
+        while(status==429) {
+            try {
+                URL url = new URL(urlCombined);
+                HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.setDoOutput(true);
+
+                //<editor-fold desc="API Key - Secret Stuff">
+                con.setRequestProperty("X-Riot-Token", key);
+                //</editor-fold>
+
+                status = con.getResponseCode();
+                if(status==429)
+                {
+                    
+                }
+                System.out.println(status);
+
+                JsonArray summArray = new Gson().fromJson(new InputStreamReader(con.getInputStream()), JsonArray.class);
+                for (JsonElement summoner : summArray) {
+                    System.out.println(String.valueOf(summoner.getAsJsonObject().get("summonerName")));
+                    summIDs.add(String.valueOf(summoner.getAsJsonObject().get("summonerId")));
+                }
+            } catch (Exception e) {
+                System.out.println("The program encountered the following error : " + e);
             }
         }
-        catch(Exception e){
-            System.out.println("The program encountered the following error : " + e);
-        }
-
-        Summoner summoner = new Gson().fromJson(result, Summoner.class);
-        return null;
+        return summIDs;
     }
 
     public int getProfileIconID() {
