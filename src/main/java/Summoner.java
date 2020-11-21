@@ -5,12 +5,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-class Container{
-    public List<Summoner> summonerList;
-}
-
-
-
 public class Summoner{
 
     private static String key = System.getenv("KEY");
@@ -22,7 +16,7 @@ public class Summoner{
     private String puuid;
     private long summonerLevel;
 
-    enum League{
+    public enum League{
         CHALLENGER,
         GRANDMASTER,
         MASTER,
@@ -34,7 +28,7 @@ public class Summoner{
         IRON
     }
 
-    enum Division{
+    public enum Division{
         I,
         II,
         III,
@@ -53,18 +47,20 @@ public class Summoner{
         this.summonerLevel = summonerLevel;
     }
 
-    public static void generateJson()
+    public static ArrayList<ArrayList<String>> getSampleIDs()
     {
+        ArrayList<ArrayList<String>> sample = new ArrayList<>();
         League leagues[] = League.values();
         Division divisions[] = Division.values();
         for(League league: leagues)
         {
+            ArrayList<String> leagueMembers = new ArrayList();
             for(Division division: divisions)
             {
-                ArrayList<String> divMembers = getDivMembers(league, division);
-
+                leagueMembers.addAll(getDivMembers(league, division));
             }
         }
+        return sample;
     }
 
     public static ArrayList<String> getDivMembers(League league, Division division)
@@ -95,7 +91,7 @@ public class Summoner{
 
                 JsonArray summArray = new Gson().fromJson(new InputStreamReader(con.getInputStream()), JsonArray.class);
                 for (JsonElement summoner : summArray) {
-                    System.out.println(String.valueOf(summoner.getAsJsonObject().get("summonerName")));
+                    System.out.println(summoner.getAsJsonObject().get("summonerName"));
                     summIDs.add(String.valueOf(summoner.getAsJsonObject().get("summonerId")));
                 }
             } catch (Exception e) {
